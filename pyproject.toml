@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "feature-interaction-graph"
+version = "0.1.0"
+description = "Mapping compositional computation in SAE feature space"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Mohammed Suhail B Nadaf"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.1",
+    "transformer-lens>=2.0",
+    "sae-lens>=4.0",
+    "networkx>=3.0",
+    "numpy>=1.24",
+    "scipy>=1.11",
+    "h5py>=3.9",
+    "plotly>=5.18",
+    "pyvis>=0.3",
+    "tqdm>=4.66",
+    "datasets>=2.14",
+    "einops>=0.7",
+    "jaxtyping>=0.2",
+    "statsmodels>=0.14",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.1",
+    "ipykernel>=6.25",
+    "jupyter>=1.0",
+    "nbformat>=5.9",
+]
+gemma = [
+    "huggingface-hub>=0.20",
+]
+
+[project.scripts]
+feature-graph = "feature_graph.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["feature_graph*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
