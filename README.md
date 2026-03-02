@@ -170,7 +170,7 @@ If you use this library, please cite:
   title={Feature Interaction Graph: Mapping Compositional Computation in SAE Feature Space},
   author={Nadaf, Mohammed Suhail B},
   year={2026},
-  url={https://github.com/your-username/feature-interaction-graph}
+  url={https://github.com/suhailnadaf509/feature-interaction-graph}
 }
 ```
 
